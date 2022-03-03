@@ -9,8 +9,14 @@ var elTimeByPlane = document.querySelector(".time-plane")
 // function
 function time(s, v){
     var hours = Math.floor(s / v);
-    var min = Math.round((s / v - hours) * 60);
-    return `${hours} soat ${min} minut`
+    var min = Math.floor((s / v - hours) * 60);
+    var secund = Math.floor(((s / v - hours) * 60 - min) * 60);
+
+    var hourbek = (hours == 0) ? "": `${hours} soat`;
+    var minutbek = (min == 0) ? "": `${min} minut`;
+    var secundbek = (secund == 0) ? "": `${secund} sekund`;
+
+    return `${hourbek}  ${minutbek} ${secundbek}`
 }
 
 // default values
